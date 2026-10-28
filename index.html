@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alicia en el país de las maravillas | Actividad práctica</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <!-- Enlace para saltar la navegación (teclado) -->
+    <a class="salto" href="#contenido">Saltar al contenido</a>
+
+    <header class="encabezado">
+        <h1>Alicia en el país de las maravillas</h1>
+        <p>Programación Web I &middot; Formularios HTML, CSS y JavaScript</p>
+        <nav aria-label="Ejercicios">
+            <a class="boton-nav" href="#ejercicio1">1. La poción mágica</a>
+            <a class="boton-nav" href="#ejercicio2">2. La merienda</a>
+            <a class="boton-nav" href="#ejercicio3">3. La Reina de Corazones</a>
+        </nav>
+    </header>
+
+    <main id="contenido">
+
+        <!-- ============ EJERCICIO 1 ============ -->
+        <section class="tarjeta tarjeta-pocion" id="ejercicio1" aria-labelledby="titulo1">
+            <h2 id="titulo1">Ejercicio 1. La poción mágica de Alicia</h2>
+            <p class="historia">
+                Alicia encuentra un frasco que dice &laquo;Bébeme&raquo;. Quiere saber si, después de
+                tomar la poción, podrá atravesar la pequeña puerta del jardín.
+            </p>
+
+            <div class="regla">
+                <h3>Regla de la poción</h3>
+                <ul>
+                    <li>Cada <strong>1 ml</strong> consumido reduce <strong>1 %</strong> de la altura inicial.</li>
+                    <li><code>nueva altura = altura inicial &minus; (altura inicial &times; ml &divide; 100)</code></li>
+                    <li>Altura de la puerta: <strong id="alturaPuertaTexto">40</strong> cm.</li>
+                    <li>Rangos permitidos: altura de 1 a 300 cm y poción de 1 a 95 ml.</li>
+                </ul>
+            </div>
+
+            <form id="formPocion" novalidate>
+                <p>
+                    <label for="alturaInicial">Altura inicial de Alicia (cm)</label>
+                    <input type="number" id="alturaInicial" name="alturaInicial" step="any" placeholder="Ej: 150">
+                </p>
+                <p>
+                    <label for="cantidadPocion">Cantidad de poción (ml)</label>
+                    <input type="number" id="cantidadPocion" name="cantidadPocion" step="any" placeholder="Ej: 80">
+                </p>
+                <p>
+                    <button type="submit" class="boton">Beber la poción</button>
+                    <button type="reset" class="boton boton-secundario" id="limpiarPocion">Limpiar</button>
+                </p>
+            </form>
+
+            <div class="resultado" id="resultadoPocion" aria-live="polite"></div>
+        </section>
+
+        <!-- ============ EJERCICIO 2 ============ -->
+        <section class="tarjeta tarjeta-merienda" id="ejercicio2" aria-labelledby="titulo2">
+            <h2 id="titulo2">Ejercicio 2. La merienda del Sombrerero Loco</h2>
+            <p class="historia">
+                Es la hora del té (¡siempre lo es!). Cada invitado elige una bebida y cuántas tazas
+                quiere. El Sombrerero calcula la cuenta.
+            </p>
+
+            <div class="regla">
+                <h3>Lista de precios (por taza)</h3>
+                <table>
+                    <caption class="oculto">Precios de las bebidas</caption>
+                    <thead>
+                        <tr><th scope="col">Bebida</th><th scope="col">Precio</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Té de menta</td><td>$25.00</td></tr>
+                        <tr><td>Té negro</td><td>$30.00</td></tr>
+                        <tr><td>Café del Conejo</td><td>$35.00</td></tr>
+                        <tr><td>Chocolate caliente</td><td>$40.00</td></tr>
+                        <tr><td>Infusión de rosas</td><td>$45.00</td></tr>
+                    </tbody>
+                </table>
+                <h3>Descuentos</h3>
+                <ul>
+                    <li>5 a 9 tazas: <strong>10 %</strong> de descuento.</li>
+                    <li>10 tazas o más: <strong>20 %</strong> de descuento.</li>
+                    <li>Máximo permitido: 20 tazas por compra.</li>
+                </ul>
+            </div>
+
+            <form id="formMerienda" novalidate>
+                <p>
+                    <label for="nombreInvitado">Nombre del invitado</label>
+                    <input type="text" id="nombreInvitado" name="nombreInvitado" maxlength="40" placeholder="Ej: Alicia" autocomplete="off">
+                </p>
+                <p>
+                    <label for="tipoBebida">Tipo de bebida</label>
+                    <select id="tipoBebida" name="tipoBebida">
+                        <option value="">-- Elige una bebida --</option>
+                        <option value="menta">Té de menta</option>
+                        <option value="negro">Té negro</option>
+                        <option value="cafe">Café del Conejo</option>
+                        <option value="chocolate">Chocolate caliente</option>
+                        <option value="rosas">Infusión de rosas</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="cantidadTazas">Cantidad de tazas</label>
+                    <input type="number" id="cantidadTazas" name="cantidadTazas" step="any" placeholder="Ej: 6">
+                </p>
+                <p>
+                    <button type="submit" class="boton">Calcular cuenta</button>
+                    <button type="reset" class="boton boton-secundario" id="limpiarMerienda">Nueva compra</button>
+                </p>
+            </form>
+
+            <div class="resultado" id="resultadoMerienda" aria-live="polite"></div>
+        </section>
+
+        <!-- ============ EJERCICIO 3 ============ -->
+        <section class="tarjeta tarjeta-reina" id="ejercicio3" aria-labelledby="titulo3">
+            <h2 id="titulo3">Ejercicio 3. El desafío de la Reina de Corazones</h2>
+            <p class="historia">
+                ¡Que le corten la cabeza al que se equivoque! La Reina numera sus cartas del 1 en adelante
+                y exige saber cuántas son pares, cuántas impares y qué grupo suma más.
+            </p>
+
+            <div class="regla">
+                <h3>Reglas del desafío</h3>
+                <ul>
+                    <li>Ingresa un número entero entre <strong>1 y 100</strong> (cantidad de cartas).</li>
+                    <li>Se recorren las cartas del 1 al número ingresado.</li>
+                    <li>Se cuentan y suman por separado los pares y los impares.</li>
+                </ul>
+            </div>
+
+            <form id="formReina" novalidate>
+                <p>
+                    <label for="cantidadCartas">Cantidad de cartas</label>
+                    <input type="number" id="cantidadCartas" name="cantidadCartas" step="any" placeholder="Ej: 10">
+                </p>
+                <p>
+                    <button type="submit" class="boton">Aceptar el desafío</button>
+                    <button type="reset" class="boton boton-secundario" id="limpiarReina">Repetir</button>
+                </p>
+            </form>
+
+            <div class="resultado" id="resultadoReina" aria-live="polite"></div>
+        </section>
+
+    </main>
+
+    <footer class="pie">
+        <p>Actividad práctica &middot; Programación Web I &middot; HTML, CSS y JavaScript nativo</p>
+        <p><a href="#contenido">Volver arriba</a></p>
+    </footer>
+
+    <!-- Un archivo JavaScript por ejercicio -->
+    <script src="js/pocion.js"></script>
+    <script src="js/merienda.js"></script>
+    <script src="js/reina.js"></script>
+</body>
+</html>
